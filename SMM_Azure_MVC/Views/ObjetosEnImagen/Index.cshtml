@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SMM_Azure_MVC.smm.Models.ObjetosEnImagen>
+
+@{
+    ViewData["Title"] = "Objetos en imagen";
+}
+
+<h1>Objetos en imagen</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Imagen
+            </th>
+            <th>
+                Objetos
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="@item.UriImagen" width="300" height="300">
+            </td>
+            <td>
+                <textarea class="form-control" readonly="readonly" style="height:300px;">@string.Join(Environment.NewLine, item.Objetos)</textarea>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

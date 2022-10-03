@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SMM_Azure_MVC.smm.Models.TextoEnFichero>
+
+@{
+    ViewData["Title"] = "Texto en ficheros";
+}
+
+<h1>Texto en ficheros</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Archivo</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Texto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sentimiento)
+            </th>
+            <th>Puntuación negativa</th>
+            <th>Puntuación neutral</th>
+            <th>Puntuación positiva</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreFichero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Texto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sentimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PuntuacionNegativa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PuntuacionNeutral)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PuntuacionPositiva)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Media</th>
+            <td></td>
+            <td></td>
+            <td>@Html.DisplayTextFor(vm => ViewData["MediaPuntuacionNegativa"])</td>
+            <td>@Html.DisplayTextFor(vm => ViewData["MediaPuntuacionNeutral"])</td>
+            <td>@Html.DisplayTextFor(vm => ViewData["MediaPuntuacionPositiva"])</td>
+        </tr>
+        <tr>
+            <th>Total textos analizados</th>
+            <td>@Html.DisplayTextFor(vm => ViewData["TotalTextosAnalizados"])</td>
+        </tr>
+    </tfoot>
+</table>
